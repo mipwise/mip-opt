@@ -1,3 +1,8 @@
+### **OBS: This program is under construction and many sections/modules are just placeholders for now.**
+
+If you have any question or comment, please 
+[Reach out](https://www.mipwise.com/contact) to us.
+
 # Mip Optimization
 
 Welcome to the **Mip Optimization** program!
