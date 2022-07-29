@@ -12,5 +12,5 @@ formulations to a variety of problems.
 
 [home]: ../../README.md
 [back]: ../5_tictech_modeling/README.md
-[next]: ../../2_documentation/README.md
+[next]: ../../2_beginner_examples/README.md
 [help]: ../../0_help/README.md
