@@ -72,6 +72,9 @@ define the decision variables. But when we start formulating constraints and
 the objective function, it's very common to go back and define new decision 
 variables or modify the definition of existing ones.
 
+Later in this program, we will discuss more about how to write formulations, 
+including best practices and good style.
+
 ------------------------------------------------------------------------------
 Before going into any further theoretical details, let's break the ice
 by formulating a baby problem that has only three variables and one

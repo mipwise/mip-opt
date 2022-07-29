@@ -13,11 +13,12 @@ solve larger and more complex instances of these problems.
 
 ------------------------------------------------------------------------------
 
-Your next stop is on multi period problems.
+Your next stop is to review the formulation template that we use throughout 
+this program.
 
 ### [Home][home] | [Back][back] | [Next][next] | [Help][help]
 
 [home]: ../README.md
 [back]: ../2_beginner_examples/README.md
-[next]: 1_multi_period_problems/README.md
+[next]: 0_formulation_template/README.md
 [help]: ../0_help/README.md
