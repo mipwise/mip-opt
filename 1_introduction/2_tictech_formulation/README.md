@@ -8,7 +8,7 @@ through a digital transformation and needs to make an important decision.
 They need to decide on the right type of technology that will support them 
 making complex decisions as their business grow.
 
-After reading a [blog][purpose-built-apps]about technologies for
+After reading a [blog][purpose-built-apps] about technologies for
 decision-making, Mr. Mip arrived at three options:
 1. Consulting services
 2. Off-the-shelf software
@@ -32,8 +32,9 @@ Because we need to write mathematical expressions, and LaTeX commands didn't
 get compiled in README files here in PyCharm by the time we wrote this, we use 
 Jupyter Notebooks to write our formulations.
 
-The formulation of the TicTech problem is in the [tictech.ipynb](tictech.
-ipynb) Jupyter Notebook. Take your time to go over the formulation and 
+The formulation of the TicTech problem is in the 
+[tictech.ipynb](tictech.ipynb) Jupyter Notebook. Take your time to go over 
+the formulation and 
 understand what's happening.
 
 [purpose-built-apps]: https://medium.com/opex-analytics/purpose-built-apps-for-enterprise-decision-making-31ccadad362d

@@ -31,6 +31,16 @@ https://www.mipwise.com/technical-articles/math-optimization
 
 ---
 
+### References
+Here is a list of books for those wanting to take a deeper dive in specific 
+operations research topics:
+
+- **Operations Research: Applications and Algorithms**; Wayne L. Winston
+- **Integer and Combinatorial Optimization**; George Nemhauser, Laurence Wolsey
+- **Linear Optimization and Duality: A Modern Exposition**; Craig A. Tovey
+- **Integer Programming**; Michele Conforti, Gérard Cornuéjols, Giacomo Zambelli
+
+
 ### License
 The content of Mip Optimization is licensed under the [GNU GPLv3](LICENSE) 
 license.
