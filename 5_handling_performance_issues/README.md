@@ -10,6 +10,7 @@
 - [Numerical Issues](numerical_issues/README.md)
 - [Infeasible Models](infeasible_models/README.md)
 - [Memory Issues](memory_issues/README.md)
+- [Symmetry](symmetry/README.md)
 
 ------------------------------------------------------------------------------
 
