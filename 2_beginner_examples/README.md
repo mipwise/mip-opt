@@ -14,6 +14,8 @@ decision variables. Some of them can be even solved graphically.
 - [PinkPig](https://www.mipwise.com/use-cases/pinkpig) - A contextualized 
   version of one of the most classic problems from the literature, the diet 
   problem.
+- [MarketUp](https://www.mipwise.com/use-cases/marketup) - A simple resource 
+  allocation problem.
 - [Freshly](https://www.mipwise.com/use-cases/freshly) - A baby production 
   problem that reveals one of the challenges of dealing with real-world 
   problems that is handling quantities given in different units of measure.
