@@ -9,5 +9,5 @@ In the next section, we will study cutting planes.
 
 [up]: ../README.md
 [back]: ../3_lp_duality/README.md
-[next]: ../5_cutting_planes/README.md
+[next]: ../6_cutting_planes/README.md
 [help]: ../../0_help/README.md
