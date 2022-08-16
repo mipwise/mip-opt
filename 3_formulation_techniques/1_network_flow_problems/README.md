@@ -1,13 +1,13 @@
-# Multi-Period Problems
+# Network Flow Problems
 
-
+- Network Design
 ------------------------------------------------------------------------------
 
-In the next section, we will study network flow problems.
+In the next section, we will study routing problems.
 
 ### [Up][up] | [Back][back] | [Next][next] | [Help][help]
 
 [up]: ../README.md
 [back]: ../0_formulation_template/README.md
-[next]: ../2_network_flow_problems/README.md
+[next]: ../2_routing_problems/README.md
 [help]: ../../0_help/README.md

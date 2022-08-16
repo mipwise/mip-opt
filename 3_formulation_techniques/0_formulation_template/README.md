@@ -17,11 +17,11 @@ the start, we have prepared two templates:
 
 ------------------------------------------------------------------------------
 
-Your next stop is on multi-period problems.
+In the next section, we will study network flow problems.
 
 ### [Up][up] | [Back][back] | [Next][next] | [Help][help]
 
 [up]: ../README.md
 [back]: ../README.md
-[next]: ../1_multi_period_problems/README.md
+[next]: ../1_network_flow_problems/README.md
 [help]: ../../0_help/README.md
