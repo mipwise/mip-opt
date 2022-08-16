@@ -3,13 +3,17 @@ Soon we are going to be writing formulation for lots of problems. So it's
 important that we agree on some points right from the beginning. In particular,
 we want to adopt similar styles to make communication easier as we move along. 
 
-People use all sort of stiles to write mathematical formulation. Have a look 
+People use all sort of styles to write mathematical formulation. Have a look 
 at the [Formulation Styles](formulation_styles.ipynb) notebook for same 
 classic examples (including examples of what you should NOT do).
 
 To make your life much easier and help you to adopt the best practices from 
-the start, we have prepared a [template formulation](formulation_template.ipynb)
-that we use ourselves everytime we start a new project.
+the start, we have prepared two templates:
+- [Formulation Template (commented)](formulation_template_commented.ipynb): This 
+  version comes with comments and is strongly recommended for beginners.
+- [Formulation Template](formulation_template.ipynb): Same as the template 
+  above but without comments. This version is recommended for those 
+  already familiar with the template.
 
 ------------------------------------------------------------------------------
 
