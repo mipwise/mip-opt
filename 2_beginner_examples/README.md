@@ -14,9 +14,6 @@ decision variables. Some of them can be even solved graphically.
 - [PinkPig](https://www.mipwise.com/use-cases/pinkpig) - A contextualized 
   version of one of the most classic problems from the literature, the diet 
   problem.
-- [SoyKing](https://www.mipwise.com/use-cases/soyking) - A beginner 
-  transportation problem that will require the definition of decision 
-  variables with two indices.
 - [MarketUp](https://www.mipwise.com/use-cases/marketup) - A simple resource 
   allocation problem.
 - [Black Blend](https://www.mipwise.com/use-cases/black-blend) - A 
