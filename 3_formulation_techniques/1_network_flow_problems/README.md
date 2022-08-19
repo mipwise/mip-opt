@@ -35,19 +35,26 @@ can travel on each arc in a day are given in the
 ### Shortest Path
 What's the fastest way for MipEx to ship a package from Station 1 to Station 5?
 
+### Minimum Cost
+MipEx now needs to ship 3 trucks from Station 1 and 4 trucks 
+from Station 3 to Station 5.
+
+What's the most economical way for MipEx to ship the orders without exceeding 
+the maximum number of available trucks on each lane?
+
+### Max Flow
+What is the maximum number of trucks that MipEx can ship from Station 1 and 
+3 to Station 5 in a single day?
+
+What is the maximum number of trucks that MipEx can ship from Station 1, 2 
+and 3 to Station 5 and 4 in a single day?
+
 ### Multi-Commodities Flow
 MipEx now needs to ship 3 trucks from Station 1 to Station 5 and 4 trucks 
 from Station 3 to Station 4.
 
 What's the most economical way for MipEx to ship the orders without exceeding 
 the maximum number of available trucks?
-
-### Max Flow
-What is the maximum number of trucks that MipEx can ship from Station 1 to 
-Station 5 in a single day?
-
-What is the maximum number of trucks that MipEx can ship from Station 1, 2 
-and 3 to Station 5 and 4 in a single day?
 
 
 ------------------------------------------------------------------------------
