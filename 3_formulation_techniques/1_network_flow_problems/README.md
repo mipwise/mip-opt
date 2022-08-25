@@ -28,8 +28,8 @@ MipEx is a courier company that operates on the following network:
 
 ![MipEx](docs/MipEx.png)
 
-The transportation cost, transit time, and the maximum number of trucks that 
-can travel on each arc in a day are given in the 
+The transit distance, transit time, transportation cost, and the maximum 
+number of trucks that can travel on each arc in a day are given in the 
 [Transportation Lanes](data/transportation_lanes.csv) table.
 
 ### Shortest Path
