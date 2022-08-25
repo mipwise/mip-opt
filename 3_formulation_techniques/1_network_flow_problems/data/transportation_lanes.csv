@@ -1,4 +1,4 @@
-Origin Site,Dest. Site,Transit Distance (Km),Transit Time (Hrs),Transp. Cost,Capacity (Trucks/Day)
+Origin Site,Dest. Site,Transit Distance (Km),Transit Time (Hrs),Transp. Cost (Per Truck),Capacity (Trucks/Day)
 Station 1,Hub 1,246,4.1,49.2,2
 Station 1,Hub 2,318,5.3,63.6,3
 Station 2,Hub 1,456,7.6,91.2,1
