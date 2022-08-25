@@ -26,11 +26,11 @@ Let's see an example.
 ## MipEx
 MipEx is a courier company that operates on the following network:
 
-![MipEx](MipEx.png)
+![MipEx](docs/MipEx.png)
 
 The transportation cost, transit time, and the maximum number of trucks that 
 can travel on each arc in a day are given in the 
-[Transportation Lanes](transportation_lanes.csv) table.
+[Transportation Lanes](data/transportation_lanes.csv) table.
 
 ### Shortest Path
 What's the fastest way for MipEx to ship a package from Station 1 to Station 5?
