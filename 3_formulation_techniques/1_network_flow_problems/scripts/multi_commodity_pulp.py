@@ -50,8 +50,10 @@ status_code = mdl.solve()
 status = pulp.LpStatus[status_code]
 if status == 'Optimal':
     print(f'Optimal solution found!')
-    x_sol = {(i, j, k): var.value() for (i, j, k), var in x.items() if var.value() > 0.5}
-    print(x_sol)
+    x_sol = [(i, j, k, var.value()) for (i, j, k), var in x.items() if var.value() > 0.5]
+    x_df = pd.DataFrame(x_sol, columns=['Origin Site ID', 'Dest. Site ID', 'Commodity ID', 'Num. Of Trucks'])
+    x_df = x_df[['Commodity ID', 'Origin Site ID', 'Dest. Site ID', 'Num. Of Trucks']].sort_values('Commodity ID')
+    print(x_df.to_string(index=False))
 else:
     print(f'Model is not optimal. Status: {status}')
 
