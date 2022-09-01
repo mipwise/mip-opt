@@ -16,7 +16,7 @@ H = list(sites_df[sites_df['Site Type'] == 'Hub']['Site ID'])
 I = S + H
 # arcs
 arcs = list(zip(lanes_df['Origin Site ID'], lanes_df['Dest. Site ID']))
-# transit distance
+# transportation cost
 tc = dict(zip(zip(lanes_df['Origin Site ID'], lanes_df['Dest. Site ID']), lanes_df['Transp. Cost (Per Truck)']))
 # arcs capacities
 au = dict(zip(zip(lanes_df['Origin Site ID'], lanes_df['Dest. Site ID']), lanes_df['Capacity (Trucks/Day)']))
@@ -39,7 +39,11 @@ for i, j in x_keys:
 
 mdl.setObjective(pulp.lpSum(tc[i, j] * x[i, j] for i, j in x_keys))
 
-mdl.solve()
-
-x_sol = {(i, j): var.value() for (i, j), var in x.items() if var.value() > 0.5}
-print(x_sol)
+status_code = mdl.solve()
+status = pulp.LpStatus[status_code]
+if status == 'Optimal':
+    print(f'Optimal solution found!')
+    x_sol = {(i, j): var.value() for (i, j), var in x.items() if var.value() > 0.5}
+    print(x_sol)
+else:
+    print(f'Model is not optimal. Status: {status}')

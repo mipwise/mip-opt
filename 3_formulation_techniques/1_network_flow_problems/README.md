@@ -50,12 +50,18 @@ What is the maximum number of trucks that MipEx can ship from Station 1, 2
 and 3 to Station 5 and 4 in a single day?
 
 ### Multi-Commodities Flow
-MipEx now needs to ship 3 trucks from Station 1 to Station 5 and 4 trucks 
-from Station 3 to Station 4.
+MipEx now needs to ship 3 trucks of a commodity from Station 1 to Station 5 
+and 4 trucks of a different commodity from Station 3 to Station 4.
+
+In addition, the commodities that go from Station 1 to Station 5 
+require a special type of truck that increases the transportation cost by 
+20%.
 
 What's the most economical way for MipEx to ship the orders without exceeding 
 the maximum number of available trucks?
 
+The [Commodities](data/commodities.csv) table contains the relevant data to 
+solve this problem.
 
 ------------------------------------------------------------------------------
 
