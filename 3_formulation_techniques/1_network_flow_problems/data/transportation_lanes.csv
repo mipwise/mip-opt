@@ -1,14 +1,14 @@
-Origin Site,Dest. Site,Transit Distance (Km),Transit Time (Hrs),Transp. Cost (Per Truck),Capacity (Trucks/Day)
-Station 1,Hub 1,246,4.1,49.2,2
-Station 1,Hub 2,318,5.3,63.6,3
-Station 2,Hub 1,456,7.6,91.2,1
-Station 3,Hub 1,384,6.4,76.8,2
-Station 3,Hub 3,120,2,24,2
-Hub 1,Hub 2,192,3.2,38.4,3
-Hub 1,Hub 3,306,5.1,61.2,3
-Hub 1,Station 4,528,8.8,105.6,2
-Hub 1,Station 5,570,9.5,114,2
-Hub 2,Hub 3,306,5.1,61.2,3
-Hub 2,Station 4,408,6.8,81.6,2
-Hub 2,Station 5,552,9.2,110.4,2
-Hub 3,Station 5,390,6.5,78,3
+Origin Site ID,Dest. Site ID,Transit Distance (Km),Transit Time (Hrs),Transp. Cost (Per Truck),Capacity (Trucks/Day)
+S1,H1,246,4.1,49.2,2
+S1,H2,318,5.3,63.6,3
+S2,H1,456,7.6,91.2,1
+S3,H1,384,6.4,76.8,2
+S3,H3,120,2,24,2
+H1,H2,192,3.2,38.4,3
+H1,H3,306,5.1,61.2,3
+H1,S4,528,8.8,105.6,2
+H1,S5,570,9.5,114,2
+H2,H3,306,5.1,61.2,3
+H2,S4,408,6.8,81.6,2
+H2,S5,552,9.2,110.4,2
+H3,S5,390,6.5,78,3

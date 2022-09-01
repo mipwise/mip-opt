@@ -35,7 +35,7 @@ number of trucks that can travel on each arc in a day are given in the
 ### Shortest Path
 What's the fastest way for MipEx to ship a package from Station 1 to Station 5?
 
-### Minimum Cost
+### Min Cost
 MipEx now needs to ship 3 trucks from Station 1 and 4 trucks 
 from Station 3 to Station 5.
 
