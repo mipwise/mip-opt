@@ -9,9 +9,10 @@ a few examples:
 
 One thing in common among these problems is that they all have an 
 underlying network, i.e., a set of nodes and a set of arcs that connect 
-these nodes. And the goal is to optimally move something through this network.
+these nodes. And the goal is to optimally move some type of flow through this 
+network.
 
-Here is a simple example to start with:
+Here is a simple contextualized example to start with:
 [SoyKing](https://www.mipwise.com/use-cases/soyking).
 
 The network in the case of the SoyKing problem is composed by five nodes and 
@@ -21,7 +22,8 @@ and some are **sink** (destination of flow).
 Many network flow problems, however, have a third type of node called 
 **intermediate** nodes.
 
-Let's see an example.
+Next, we study a small use case to gradually build the foundation to solve 
+network flow problems.
 
 ## MipEx
 MipEx is a courier company that operates on the following network:
