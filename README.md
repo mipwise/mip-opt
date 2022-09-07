@@ -60,9 +60,12 @@ Please [Reach out](https://www.mipwise.com/contact) to us.
 - [Beginner Examples](./2_beginner_examples/README.md)
 - [Formulation Techniques](./3_formulation_techniques/README.md)
 	- [Formulation Template](./3_formulation_techniques/0_formulation_template/README.md)
-	- [Multi Period Problems](3_formulation_techniques/3_multi_period_problems/README.md)
-	- [Network Flow Problems](3_formulation_techniques/1_network_flow_problems/README.md)
-	- [Routing Problems](3_formulation_techniques/2_routing_problems/README.md)
+	- [Network Flow Problems](./3_formulation_techniques/1_network_flow_problems/README.md)
+		- data
+		- docs
+		- formulations
+	- [Routing Problems](./3_formulation_techniques/2_routing_problems/README.md)
+	- [Multi Period Problems](./3_formulation_techniques/3_multi_period_problems/README.md)
 	- [Scheduling Problems](./3_formulation_techniques/4_scheduling_problems/README.md)
 	- [Generalized Techniques](./3_formulation_techniques/5_generalized_techniques/README.md)
 		- [Absolute Values](./3_formulation_techniques/5_generalized_techniques/absolute_values/README.md)
@@ -98,4 +101,5 @@ Please [Reach out](https://www.mipwise.com/contact) to us.
 	- [Set Covering Formulations](./6_exact_heuristics/set_covering_formulations/README.md)
 	- [Smart Restrictions](./6_exact_heuristics/smart_restrictions/README.md)
 - miscellaneous
+	- [Docs](./miscellaneous/docs/README.md)
 	- notebooks
