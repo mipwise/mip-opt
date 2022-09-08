@@ -65,6 +65,34 @@ the maximum number of available trucks?
 The [Commodities](data/commodities.csv) table contains the relevant data to 
 solve this problem.
 
+## Arc Vs. Path-based Formulation
+The formulations we have used so far (see [formulations](formulations) 
+directory) are called **arc-based formulations**. In fact, decision variables 
+are defined for each arc of the network. Feasible flow paths are then 
+defined **implicitly** with the flow balance constraints.
+
+While the arc-based formulation is quite clean and intuitive, it may not 
+perform very well in practice for large-scale problems, especially as more 
+complexities are added to the model (routing problems with time windows will 
+be an example of that).
+
+One alternative to the arc-based formulation is the called **path-based 
+formulation**. In this case, the set of feasible paths for each 
+origin-destination must be provided as input. The decision is then to decide 
+which path to choose. As one can imagine, the challenge with this approach 
+is to generate all feasible paths. There can be an astronomical number of 
+them depending on the size of the network and types of requirements.
+
+In practice, however, there are ways (or even strong reasons, in some cases)
+to restrict the number of arcs that are generated and fed to the model. 
+While restricting the number of paths can yield suboptimal solutions, it 
+also gives the flexibility to strike a trade-off between accuracy and 
+tractability.
+
+In the end, the right approach depends a lot on the specific use case, and 
+the final conclusion requires systematic experimentation. We will revisit 
+this topic later in the program.
+
 ------------------------------------------------------------------------------
 
 In the next section, we will study routing problems.
