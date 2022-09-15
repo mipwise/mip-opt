@@ -11,8 +11,8 @@ def _this_directory():
 
 
 # region Prepare the input data
-cities_df = pd.read_csv(os.path.join(_this_directory(), '../data/cities.csv'))
-travel_costs_df = pd.read_csv(os.path.join(_this_directory(), '../data/travel_costs.csv'))
+cities_df = pd.read_csv(os.path.join(_this_directory(), '../data/tsp/cities.csv'))
+travel_costs_df = pd.read_csv(os.path.join(_this_directory(), '../data/tsp/travel_costs.csv'))
 # cities
 I = list(cities_df['City ID'])
 # arcs

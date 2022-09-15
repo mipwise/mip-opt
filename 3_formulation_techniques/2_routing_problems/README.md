@@ -24,7 +24,7 @@ and classic version of a routing problem, the Traveling Salesman Problem (TSP).
 ## Traveling Salesman Problem (TSP)
 Starting from City 1, a traveling salesman must visit all the other 7 cities 
 and return to City 1. The cost of traveling between any pair of cities is 
-given in the [Transit Matrix](data/travel_costs.csv) table. Which route 
+given in the [Transit Matrix](data/tsp/travel_costs.csv) table. Which route 
 should the salesman take to minimize the total cost of his tour?
 
 ![TSP](docs/tsp.png)
