@@ -41,8 +41,13 @@ mdl.setObjective(c * transit_distance)
 mdl.solve()
 
 # Retrieve the solution
-x_sol = {key: v.value() for key, v in x.items() if v.value() > 0.5}
-
-print(f'Route: {x_sol}')
-print(f'Transit Distance: {transit_distance.value()}')
-print(f'Transit Cost: {c * transit_distance.value()}')
+status_code = mdl.solve()
+status = pulp.LpStatus[status_code]
+if status == 'Optimal':
+    print(f'Optimal solution found!')
+    x_sol = {key: v.value() for key, v in x.items() if v.value() > 0.5}
+    print(f'Route: {x_sol}')
+    print(f'Transit Distance: {transit_distance.value()}')
+    print(f'Transit Cost: {c * transit_distance.value()}')
+else:
+    print(f'Model is not optimal. Status: {status}')
