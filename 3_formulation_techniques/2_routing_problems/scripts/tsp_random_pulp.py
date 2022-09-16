@@ -22,6 +22,8 @@ num_cities = 10
 asymmetry = 0.2  # float between 0 (inclusive) and 1 (inclusive), percentage asymmetry between cost(i, j) and cost(j, i)
 density = 1.0  # float between 0 (exclusive) and 1 (inclusive), percentage arcs included
 random.seed(1)
+time_limit = 60
+mip_gap = 0.05
 # cities
 I = list(range(1, num_cities+1))
 position = {i: (random.randint(1, 3*num_cities), random.randint(1, 3*num_cities)) for i in I}
@@ -70,12 +72,13 @@ mdl.setObjective(pulp.lpSum(c[i, j] * x[i, j] for i, j in x_keys))
 # endregion
 
 # region Solve the model and retrieve solution
-status_code = mdl.solve()
+status_code = mdl.solve(pulp.PULP_CBC_CMD(timeLimit=time_limit, gapRel=mip_gap))
 status = pulp.LpStatus[status_code]
 if status == 'Optimal':
     print(f'Optimal solution found!')
     x_sol = [(i, j) for (i, j), var in x.items() if var.value() > 0.5]
     print(x_sol)
+    print('Generating the plot...')
     # plot solution
     G = nx.DiGraph()
     G.add_nodes_from([(i, {"pos": pos}) for i, pos in position.items()])
