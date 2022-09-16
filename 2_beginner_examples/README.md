@@ -13,9 +13,12 @@ decision variables. Some of them can be even solved graphically.
 
 - [PinkPig](https://www.mipwise.com/use-cases/pinkpig) - A contextualized 
   version of one of the most classic problems from the literature, the diet 
-  problem.
+  problem. The *Diet Problem*, also known as *Stigler diet*, is a classic 
+  optimization problem widely used to illustrate a use case of linear 
+  programming. You can find much more details on Wikipedia: 
+  [Stigler Diet](https://en.wikipedia.org/wiki/Stigler_diet)
 - [MarketUp](https://www.mipwise.com/use-cases/marketup) - A simple resource 
-  allocation problem.
+  allocation (or portfolio optimization) problem.
 - [Black Blend](https://www.mipwise.com/use-cases/black-blend) - A 
   contextualized version of the classic blending problem.
 - [Freshly](https://www.mipwise.com/use-cases/freshly) - A baby production 
