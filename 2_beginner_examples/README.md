@@ -27,12 +27,12 @@ decision variables. Some of them can be even solved graphically.
 
 ------------------------------------------------------------------------------
 
-In the next section, we will study classes of problems that are frequently 
-encountered in applications.
+In the next section, we will discuss some really important best practice to 
+successfully solve optimization problems in the industry.
 
 ### [Home][home] | [Back][back] | [Next][next] | [Help][help]
 
 [home]: ../README.md
 [back]: ../1_introduction/next_steps/README.md
-[next]: ../3_formulation_techniques/README.md
+[next]: ../3_best_practices/README.md
 [help]: ../0_help/README.md
