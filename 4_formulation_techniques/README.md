@@ -13,12 +13,11 @@ solve larger and more complex instances of these problems.
 
 ------------------------------------------------------------------------------
 
-Your next stop is to review the formulation template that we use throughout 
-this program.
+Your next stop is to study network flow problems.
 
 ### [Home][home] | [Back][back] | [Next][next] | [Help][help]
 
 [home]: ../README.md
-[back]: ../2_beginner_examples/README.md
-[next]: 0_formulation_template/README.md
+[back]: ../3_best_practices/README.md
+[next]: 1_network_flow_problems/README.md
 [help]: ../0_help/README.md

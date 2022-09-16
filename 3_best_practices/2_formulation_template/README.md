@@ -17,11 +17,12 @@ the start, we have prepared two templates:
 
 ------------------------------------------------------------------------------
 
-In the next section, we will study network flow problems.
+In the next module, we will practice a lot more formulation and 
+implementation for a variety of applications.
 
 ### [Up][up] | [Back][back] | [Next][next] | [Help][help]
 
 [up]: ../README.md
-[back]: ../README.md
-[next]: ../1_network_flow_problems/README.md
+[back]: ../1_data_agnostic/README.md
+[next]: ../../4_formulation_techniques/README.md
 [help]: ../../0_help/README.md
