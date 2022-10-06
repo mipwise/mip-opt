@@ -1,0 +1,4 @@
+Commodity ID,Origin Site ID,Arrival Time (Hr),Dest. Site ID,Due Time (Hr),Demand (Trucks)
+S1S4,S1,8,S4,20,0.5
+S2S4,S2,7,S4,20,0.3
+S3S4,S3,8,S4,18,1.2

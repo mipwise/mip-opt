@@ -38,6 +38,28 @@ The planers at Mip Solar want to maximize the throughput of solar panels.
 its clients. We presented it here just to illustrate a relevant real-world 
 application of the topic being studied in this module. But due to 
 contractual reasons, we won't solve this problem.*
+
+## MipEx (with due time)
+Let's revisit the [MipEx](../1_network_flow_problems/README.md) use case.
+
+![MipEx](docs/MipEx.png)
+
+This time, we assume that each commodity has an arrival time, the hour of 
+the day that the commodity is ready to leave its origin station, and a due 
+time, the hour of the day that the commodity must be at its destination station.
+All this information is provided in the
+[Commodities](data/commodities.csv) table.
+
+The transit distance, transit time, transportation cost, and the maximum 
+number of trucks that can travel on each arc in a day are given in the 
+[Transportation Lanes](data/transportation_lanes.csv) table.
+
+The goal is to deliver all commodities on time at minimum cost.
+
+It's important to note that the cost of a truck is the same whether the 
+truck is full of partially full. On the other hand, commodities can stay at 
+a site for as long as needed to leverage loads consolidations.
+
 ------------------------------------------------------------------------------
 
 In the next section, we will study scheduling problems.
