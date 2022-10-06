@@ -18,6 +18,26 @@ Transportation problems, including routing, will often have a time component
 too. For example, when there are time windows to pick up or delivery. In 
 this case, the underlying network spans in space and time.
 
+## Mip Solar
+Mip Solar manufactures solar panels. One of the production stages is to heat 
+the panel so that different layers of the material melt together. This 
+heating process occurs inside the so-called laminators, and we assume it 
+lasts 10 seconds.
+
+Panels move from the previous production stage to laminators over conveyors. 
+Each conveyor operates independently, meaning that a conveyor can move a panel 
+back and forth at any time. Additionally, a panel can stay on a conveyor for 
+as much time as needed, and it takes 1 second for a panel to move from one 
+conveyor to another.
+
+![Mip Solar](docs/mip_solar.png)
+
+The planers at Mip Solar want to maximize the throughput of solar panels.
+
+*OBS: This is a simplified version of a problem that Mip Wise solved for one of 
+its clients. We presented it here just to illustrate a relevant real-world 
+application of the topic being studied in this module. But due to 
+contractual reasons, we won't solve this problem.*
 ------------------------------------------------------------------------------
 
 In the next section, we will study scheduling problems.
