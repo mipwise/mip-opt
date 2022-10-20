@@ -67,7 +67,7 @@ status_code = mdl.solve()
 status = pulp.LpStatus[status_code]
 if status == 'Optimal':
     print(f'Optimal solution found!')
-    x_sol = [(i, j, k, t, var.value()) for (i, j, k, t), var in x.items() if var.value() > 0.5]
+    x_sol = [(i, j, k, t, var.value()) for (i, j, k, t), var in x.items() if var.value() > 1e-4]
     x_df = pd.DataFrame(x_sol, columns=['Origin Site ID', 'Dest. Site ID', 'Commodity ID', 'Period', 'Num. Of Trucks'])
     x_df = x_df[['Commodity ID', 'Origin Site ID', 'Dest. Site ID', 'Period', 'Num. Of Trucks']]
     x_df.sort_values('Commodity ID', inplace=True)
