@@ -2,6 +2,7 @@
 In this section we abstract and generalize many of the techniques I've seen 
 so far.
 
+- [Basic Logic Operations](basic_logic_opeartions/README.md)
 - [Absolute Values](absolute_values/README.md)
 - [Disjunctions](disjunctions/README.md)
 - [Fixed Charge](fixed_charge/README.md)
