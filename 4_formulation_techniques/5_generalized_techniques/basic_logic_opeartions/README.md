@@ -6,13 +6,13 @@ this session.
 Let's start with an artificial problem to get started.
 
 ## Bob Invest
-Bob wants to invest $100, and he got eight portfolios to chose from:
+Bob wants to invest $100, and he got six portfolios to chose from:
 
 | Portfolio ID | Allocation ($) | ROI (%) |
 |--------------|----------------|---------|
 | 1            | 16.00          | 4.2     |
 | 2            | 22.00          | 3.1     |
-| 3            | 18.00          | 3.0     |
+| 3            | 18.00          | 4.0     |
 | 4            | 10.00          | 4.8     |
 | 5            | 31.00          | 2.5     |
 | 6            | 38.00          | 3.9     |
