@@ -40,16 +40,16 @@ The input data is available from [this worksheet](docs/soyking_data.xlsx).
 
 The additional requirements are the following:
  
-1) SoyKing does not have to meet the demand of all DCs in full. But for each 
+1) If a given Farm decides to serve a given DC, then it must fulfill at 
+   least 20% of its demand.
+2) SoyKing does not have to meet the demand of all DCs in full. But for each 
    ton of soy demanded and not supplied, SoyKing pays a penalty as provided 
    in the "Not Supplying Penalty" column of the "demands" table.
-2) At least four DCs must have its demand met in full.
-3) At least three of the following DCs must have at least 75% of its demand 
+3) At least four DCs must have its demand met in full.
+4) At least three of the following DCs must have at least 75% of its demand 
    met: D3, D4, D7, and D8.
-4) If D4 receives at least 60% of its demand, then D2 and D6 must both 
+5) If D4 receives at least 60% of its demand, then D2 and D6 must both 
    receive at least 60% of its demand as well.
-5) If SoyKing decide to serve a given DC, then it must fulfill at least 50% 
-   of its demand.
 
 
 ## Generic Requirements
