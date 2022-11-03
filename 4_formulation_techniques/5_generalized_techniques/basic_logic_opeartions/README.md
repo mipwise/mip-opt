@@ -3,7 +3,7 @@ There are many logic operations, such as "if-them" and "either-or", that are
 often required to model real-world situations. We will study some of them in 
 this session.
 
-Let's start with an artificial problem to get started.
+As usual, let's go with examples!
 
 ## Bob Invest
 Bob wants to invest $100, and he got six portfolios to chose from:
@@ -28,6 +28,41 @@ Now consider the following additional conditions:
 
 How does the total return decrease as we account for each additional 
 constraint?
+
+## SoyKing
+The original SoyKing problem is on the Mip Wise website: 
+https://www.mipwise.com/use-cases/soyking
+
+But here we will consider a slightly larger instance and additional 
+requirements.
+
+The input data is available from [this worksheet](docs/soyking_data.xlsx).
+
+The additional requirements are the following:
+ 
+1) SoyKing does not have to meet the demand of all DCs in full. But for each 
+   ton of soy demanded and not supplied, SoyKing pays a penalty as provided 
+   in the "Not Supplying Penalty" column of the "demands" table.
+2) At least four DCs must have its demand met in full.
+3) At least three of the following DCs must have at least 75% of its demand 
+   met: D3, D4, D7, and D8.
+4) If D4 receives at least 60% of its demand, then D2 and D6 must both 
+   receive at least 60% of its demand as well.
+5) If SoyKing decide to serve a given DC, then it must fulfill at least 50% 
+   of its demand.
+
+
+## Generic Requirements
+Now that we have seen how the need to model logic operations show up in 
+practical setting, it's a good idea to have summary of them for quick 
+reference in the future.
+
+The [logical_constraints.ipynb](formulations/logical_constraints.ipynb) 
+notebook contains several generic implementations that you can use and 
+customize to better fit in your toolbox. 
+
+
+
 
 ------------------------------------------------------------------------------
 
