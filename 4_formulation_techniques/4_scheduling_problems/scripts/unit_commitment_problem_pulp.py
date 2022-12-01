@@ -8,8 +8,8 @@ def _this_directory():
     return os.path.dirname(os.path.realpath(os.path.abspath(inspect.getsourcefile(_this_directory))))
 
 
-periods_df = pd.read_csv(os.path.join(_this_directory(), '../data/ucp_data_3_generators/periods.csv'))
-generators_df = pd.read_csv(os.path.join(_this_directory(), '../data/ucp_data_3_generators/generators.csv'))
+periods_df = pd.read_csv(os.path.join(_this_directory(), '../data/ucp_data_40_generators/periods.csv'))
+generators_df = pd.read_csv(os.path.join(_this_directory(), '../data/ucp_data_40_generators/generators.csv'))
 
 # periods
 T = list(periods_df['Period ID'])
@@ -104,7 +104,7 @@ for i, t in x_keys:
 production_cost = pulp.lpSum(cp[i] * x[i, t] for i, t in x_keys)
 startup_cost = pulp.lpSum(cu[i] * y[i, t] for i, t in y_keys)
 shutdown_cost = pulp.lpSum(cd[i] * w[i, t] for i, t in w_keys)
-mdl.setObjective(production_cost + startup_cost + shutdown_cost)
+mdl.setObjective((production_cost + startup_cost + shutdown_cost))
 
 status_code = mdl.solve(pulp.PULP_CBC_CMD(gapRel=0.00001))
 status = pulp.LpStatus[status_code]

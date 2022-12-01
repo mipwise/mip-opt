@@ -8,8 +8,8 @@ def _this_directory():
     return os.path.dirname(os.path.realpath(os.path.abspath(inspect.getsourcefile(_this_directory))))
 
 
-periods_df = pd.read_csv(os.path.join(_this_directory(), '../data/ucp_data_3_generators/periods.csv'))
-generators_df = pd.read_csv(os.path.join(_this_directory(), '../data/ucp_data_3_generators/generators.csv'))
+periods_df = pd.read_csv(os.path.join(_this_directory(), '../data/ucp_data_40_generators/periods.csv'))
+generators_df = pd.read_csv(os.path.join(_this_directory(), '../data/ucp_data_40_generators/generators.csv'))
 
 # periods
 T = list(periods_df['Period ID'])
@@ -94,10 +94,9 @@ for i, t in w_keys:
 
 for i, t in x_keys:
     if t == T[0]:
-        mdl.addConstraint(x[i, t] - (p[i] - pl[i] * z[i, t-1]) <=
-                          su[i] - pl[i] * z[i, t-1] + (pu[i] - su[i]) * (1 - y[i, t]),
+        mdl.addConstraint((x[i, t] + pl[i] * z[i, t-1]) - p[i] <= su[i] - pl[i] + (pu[i] - su[i]) * (1 - y[i, t]),
                           name=f'SR1_{i}_{t}')
-        mdl.addConstraint((p[i] - pl[i]) - x[i, t] <= sd[i] - pl[i] + (pu[i] - sd[i]) * (1 - w[i, t]),
+        mdl.addConstraint(p[i] - (x[i, t] + pl[i] * z[i, t-1]) <= sd[i] - pl[i] + (pu[i] - sd[i]) * (1 - w[i, t]),
                           name=f'SR2_{i}_{t}')
     else:
         mdl.addConstraint(x[i, t] - x[i, t-1] <= su[i] - pl[i] + (pu[i] - su[i]) * (1 - y[i, t]), name=f'SR1_{i}_{t}')
