@@ -78,6 +78,8 @@ Please [Reach out](https://www.mipwise.com/contact) to us.
 		- docs
 		- formulations
 	- [Scheduling Problems](./4_formulation_techniques/4_scheduling_problems/README.md)
+		- data
+			- ucp_data_3_generators
 		- docs
 		- formulations
 	- [Generalized Techniques](./4_formulation_techniques/5_generalized_techniques/README.md)
@@ -99,6 +101,8 @@ Please [Reach out](https://www.mipwise.com/contact) to us.
 	- [Sensitivity Analysis](./5_theoretical_background/4_sensitivity_analysis/README.md)
 	- [Branch and Bound](./5_theoretical_background/5_branch_and_bound/README.md)
 	- [Cutting Planes](./5_theoretical_background/6_cutting_planes/README.md)
+		- data
+		- formulations
 - [Handling Performance Issues](./6_handling_performance_issues/README.md)
 	- [Concurrent LP Solvers](./6_handling_performance_issues/concurrent_lp_solvers/README.md)
 	- [Infeasible Models](./6_handling_performance_issues/infeasible_models/README.md)

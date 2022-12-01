@@ -58,10 +58,27 @@ The most basic version of this problem goes like this:
 The goal is to prescribe the most cost-efficient schedule that meets the 
 demand on each period without violating any operational constraints.
 
-**Reference:** *[Garver, L. L. (1962). Power Generation Scheduling by Integer 
-Programming-Development of Theory. Transactions of the American Institute 
-of Electrical Engineers. Part III: Power Apparatus and Systems, 81(3), 
-730–734.](https://ieeexplore.ieee.org/document/4501405)*
+The basic formulation of this problem and it's implementation are here:
+- [Basic Formulation](formulations/unit_commitment_problem_formulation.ipynb)
+- [Implementation](scripts/unit_commitment_problem_pulp.py)
+
+A tighter formulation (that defines the production decision variables with a 
+shift, see [[2]][2]) and its corresponding implementation are here: 
+- [Tighter Formulation](formulations/unit_commitment_problem_tighter_formulation.ipynb)
+- [Implementation](scripts/unit_commitment_problem_tighter_pulp.py)
+
+
+### References:  
+[[1]][1] - Garver, L. L. (1962). *Power Generation Scheduling by Integer 
+Programming-Development of Theory*. Transactions of the American Institute 
+of Electrical Engineers. Part III: Power Apparatus and Systems, 81(3), 730–734.
+
+[[2]][2] - J. Ostrowski, M. F. Anjos and A. Vannelli (2012). *Tight Mixed 
+Integer Linear Programming Formulations for the Unit Commitment Problem*. IEEE 
+Transactions on Power Systems, vol. 27, no. 1, pp. 39-46.
+
+[1]: https://ieeexplore.ieee.org/document/4501405
+[2]: https://ieeexplore.ieee.org/document/5983423
 
 ------------------------------------------------------------------------------
 
