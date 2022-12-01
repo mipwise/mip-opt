@@ -8,8 +8,8 @@ def _this_directory():
     return os.path.dirname(os.path.realpath(os.path.abspath(inspect.getsourcefile(_this_directory))))
 
 
-periods_df = pd.read_csv(os.path.join(_this_directory(), '../data/ucp_data_40_generators/periods.csv'))
-generators_df = pd.read_csv(os.path.join(_this_directory(), '../data/ucp_data_40_generators/generators.csv'))
+periods_df = pd.read_csv(os.path.join(_this_directory(), '../data/ucp_data_20_generators/periods.csv'))
+generators_df = pd.read_csv(os.path.join(_this_directory(), '../data/ucp_data_20_generators/generators.csv'))
 
 # periods
 T = list(periods_df['Period ID'])
