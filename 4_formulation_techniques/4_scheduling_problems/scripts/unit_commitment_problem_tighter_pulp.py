@@ -8,8 +8,8 @@ def _this_directory():
     return os.path.dirname(os.path.realpath(os.path.abspath(inspect.getsourcefile(_this_directory))))
 
 
-periods_df = pd.read_csv(os.path.join(_this_directory(), '../data/ucp_data_20_generators/periods.csv'))
-generators_df = pd.read_csv(os.path.join(_this_directory(), '../data/ucp_data_20_generators/generators.csv'))
+periods_df = pd.read_csv(os.path.join(_this_directory(), '../data/ucp_data_10_generators/periods.csv'))
+generators_df = pd.read_csv(os.path.join(_this_directory(), '../data/ucp_data_10_generators/generators.csv'))
 
 # periods
 T = list(periods_df['Period ID'])
@@ -91,24 +91,20 @@ for i, t in w_keys:
 
 # SR1) Production of Generator  𝑖  must not go over  𝑠𝑢𝑖  when it's starting up:
 # SR2) Production of Generator  𝑖  must be over  𝑠𝑑𝑖  when it's shutting down:
-
 for i, t in x_keys:
     if t == T[0]:
-        mdl.addConstraint((x[i, t] + pl[i] * z[i, t-1]) - p[i] <= su[i] - pl[i] + (pu[i] - su[i]) * (1 - y[i, t]),
-                          name=f'SR1_{i}_{t}')
-        mdl.addConstraint(p[i] - (x[i, t] + pl[i] * z[i, t-1]) <= sd[i] - pl[i] + (pu[i] - sd[i]) * (1 - w[i, t]),
-                          name=f'SR2_{i}_{t}')
+        mdl.addConstraint(pl[i] * z[i, t] + x[i, t] <= su[i] + (pu[i] - su[i]) * (1 - y[i, t]), name=f'SR1_{i}_{t}')
+        mdl.addConstraint(p[i] <= sd[i] + (pu[i] - sd[i]) * (1 - w[i, t]), name=f'SR2_{i}_{t}')
     else:
-        mdl.addConstraint(x[i, t] - x[i, t-1] <= su[i] - pl[i] + (pu[i] - su[i]) * (1 - y[i, t]), name=f'SR1_{i}_{t}')
-        mdl.addConstraint(x[i, t-1] - x[i, t] <= sd[i] - pl[i] + (pu[i] - sd[i]) * (1 - w[i, t]), name=f'SR2_{i}_{t}')
-
+        mdl.addConstraint(pl[i] * z[i, t] + x[i, t] <= su[i] + (pu[i] - su[i]) * (1 - y[i, t]), name=f'SR1_{i}_{t}')
+        mdl.addConstraint(pl[i] * z[i, t-1] + x[i, t-1] <= sd[i] + (pu[i] - sd[i]) * (1 - w[i, t]), name=f'SR2_{i}_{t}')
 
 production_cost = pulp.lpSum(cp[i] * (pl[i] * z[i, t] + x[i, t]) for i, t in x_keys)
 startup_cost = pulp.lpSum(cu[i] * y[i, t] for i, t in y_keys)
 shutdown_cost = pulp.lpSum(cd[i] * w[i, t] for i, t in w_keys)
 mdl.setObjective(production_cost + startup_cost + shutdown_cost)
 
-status_code = mdl.solve(pulp.PULP_CBC_CMD(gapRel=0.00001))
+status_code = mdl.solve(pulp.PULP_CBC_CMD(gapRel=0.001, timeLimit=60))
 status = pulp.LpStatus[status_code]
 if status == 'Optimal':
     print(f'Optimal solution found!')
