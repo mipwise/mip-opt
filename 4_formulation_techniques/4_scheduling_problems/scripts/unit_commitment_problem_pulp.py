@@ -39,7 +39,10 @@ td = dict(zip(generators_df['Generator ID'], generators_df['Min Down']))
 su = dict(zip(generators_df['Generator ID'], generators_df['Max Startup Rate']))
 # max shutdown rate
 sd = dict(zip(generators_df['Generator ID'], generators_df['Max Shutdown Rate']))
-
+# max ramp-up rate
+ru = dict(zip(generators_df['Generator ID'], generators_df['Max Ramp-up Rate']))
+# max ramp-down rate
+rd = dict(zip(generators_df['Generator ID'], generators_df['Max Ramp-down Rate']))
 
 x_keys = [(i, t) for i in I for t in T]
 y_keys = [(i, t) for i in I for t in T]
@@ -98,22 +101,27 @@ for i, t in w_keys:
 for i, t in w_keys:
     mdl.addConstraint(w[i, t] <= z[i, t-1], name=f'C8_{i}_{t}')
 
-# SR1) Production of Generator  𝑖  must not go over  𝑠𝑢𝑖  when it's starting up:
-# SR2) Production of Generator  𝑖  must be over  𝑠𝑑𝑖  when it's shutting down:
+# C9) Production of Generator 𝑖 must not ramp up more than 𝑠𝑢𝑖 when it's starting up or more than 𝑟𝑢𝑖 when it's on:
 for i, t in x_keys:
     if t == T[0]:
-        mdl.addConstraint(x[i, t] <= su[i] + (pu[i] - su[i]) * (1 - y[i, t]), name=f'SR1_{i}_{t}')
-        mdl.addConstraint(p[i] <= sd[i] + (pu[i] - sd[i]) * (1 - w[i, t]), name=f'SR2_{i}_{t}')
+        mdl.addConstraint(x[i, t] - p[i] <= ru[i] * z[i, t-1] + su[i] * y[i, t], name=f'C9_{i}_{t}')
     else:
-        mdl.addConstraint(x[i, t] <= su[i] + (pu[i] - su[i]) * (1 - y[i, t]), name=f'SR1_{i}_{t}')
-        mdl.addConstraint(x[i, t-1] <= sd[i] + (pu[i] - sd[i]) * (1 - w[i, t]), name=f'SR2_{i}_{t}')
+        mdl.addConstraint(x[i, t] - x[i, t-1] <= ru[i] * z[i, t-1] + su[i] * y[i, t], name=f'C9_{i}_{t}')
 
+# C10) Production of Generator 𝑖 must not ramp down more than 𝑠𝑑𝑖 when it's shutting down or more than 𝑟𝑑𝑖 when it's on:
+for i, t in x_keys:
+    if t == T[0]:
+        mdl.addConstraint(p[i] - x[i, t] <= rd[i] * z[i, t] + sd[i] * w[i, t], name=f'C10_{i}_{t}')
+    else:
+        mdl.addConstraint(x[i, t-1] - x[i, t] <= rd[i] * z[i, t] + sd[i] * w[i, t], name=f'C10_{i}_{t}')
+
+# Objective function
 production_cost = pulp.lpSum(cp[i] * x[i, t] for i, t in x_keys)
 startup_cost = pulp.lpSum(cu[i] * y[i, t] for i, t in y_keys)
 shutdown_cost = pulp.lpSum(cd[i] * w[i, t] for i, t in w_keys)
 mdl.setObjective((production_cost + startup_cost + shutdown_cost))
 
-status_code = mdl.solve(pulp.PULP_CBC_CMD(gapRel=0.001, timeLimit=60))
+status_code = mdl.solve(pulp.PULP_CBC_CMD(gapRel=0.00001, timeLimit=60))
 status = pulp.LpStatus[status_code]
 if status == 'Optimal':
     print(f'Optimal solution found!')

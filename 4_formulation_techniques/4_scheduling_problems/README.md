@@ -53,12 +53,14 @@ The most basic version of this problem goes like this:
 - There are a startup and shutdown costs associated with each generator;
 - Once a generator is turned on/turned off, there is a minimum number of 
   periods that the generator mush be on/off before it can be turned 
-  off/turned on again.
+  off/turned on again;
+- Production of a generator must not ramp up (ramp down) too rapidly when it's 
+  starting up (shutting down) or when it's on for two consecutive time periods.
 
 The goal is to prescribe the most cost-efficient schedule that meets the 
 demand on each period without violating any operational constraints.
 
-The basic formulation of this problem and it's implementation are here:
+The formulation of this problem and it's implementation are here:
 - [Basic Formulation](formulations/unit_commitment_problem_formulation.ipynb)
 - [Implementation](scripts/unit_commitment_problem_pulp.py)
 

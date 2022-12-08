@@ -1,4 +1,4 @@
-Generator ID,Status,Production,Min Output,Max Output,Production Cost,Startup Cost,Shutdown Cost,Min Up,Min Down,Max Startup Rate,Max Shutdown Rate
-G1,On,250,180,350,10890,30000,3000,3,1,220,200
-G2,Off,0,250,400,16940,45000,12000,5,2,300,330
-G3,On,400,360,580,12410,55000,12000,6,4,420,360
+Generator ID,Status,Production,Min Output,Max Output,Production Cost,Startup Cost,Shutdown Cost,Min Up,Min Down,Max Startup Rate,Max Shutdown Rate,Max Ramp-up Rate,Max Ramp-down Rate
+G1,On,250,180,350,10890,30000,3000,3,1,220,200,20,30
+G2,Off,0,250,400,16940,45000,12000,5,2,300,330,50,75
+G3,On,400,360,580,12410,55000,12000,6,4,420,360,93,140
