@@ -85,9 +85,17 @@ for i, t in x_keys:
 for i, t in y_keys:
     mdl.addConstraint(z[i, t] - z[i, t-1] <= y[i, t], name=f'C5_{i}_{t}')
 
-# C6) If Generator  𝑖  is on in Period  𝑡−1  and off in Period  𝑡 , then it has been turned off:
+# C6) If Generator  𝑖  is turned on in Period  𝑡 , then it was off in Period  𝑡−1 :
+for i, t in y_keys:
+    mdl.addConstraint(y[i, t] <= 1 - z[i, t - 1], name=f'C6_{i}_{t}')
+
+# C7) If Generator  𝑖  is on in Period  𝑡−1  and off in Period  𝑡 , then it has been turned off:
 for i, t in w_keys:
-    mdl.addConstraint(z[i, t-1] - z[i, t] <= w[i, t], name=f'C6_{i}_{t}')
+    mdl.addConstraint(z[i, t-1] - z[i, t] <= w[i, t], name=f'C7_{i}_{t}')
+
+# C8) If Generator  𝑖  is turned off in Period  𝑡 , then it was on in Period  𝑡−1 :
+for i, t in w_keys:
+    mdl.addConstraint(w[i, t] <= z[i, t-1], name=f'C8_{i}_{t}')
 
 # SR1) Production of Generator  𝑖  must not go over  𝑠𝑢𝑖  when it's starting up:
 # SR2) Production of Generator  𝑖  must be over  𝑠𝑑𝑖  when it's shutting down:
