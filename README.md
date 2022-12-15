@@ -79,7 +79,11 @@ Please [Reach out](https://www.mipwise.com/contact) to us.
 		- formulations
 	- [Scheduling Problems](./4_formulation_techniques/4_scheduling_problems/README.md)
 		- data
+			- ucp_data_10_generators
+			- ucp_data_20_generators
+			- ucp_data_30_generators
 			- ucp_data_3_generators
+			- ucp_data_40_generators
 		- docs
 		- formulations
 	- [Generalized Techniques](./4_formulation_techniques/5_generalized_techniques/README.md)
