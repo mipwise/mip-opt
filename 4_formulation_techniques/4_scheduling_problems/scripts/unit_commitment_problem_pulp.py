@@ -8,8 +8,8 @@ def _this_directory():
     return os.path.dirname(os.path.realpath(os.path.abspath(inspect.getsourcefile(_this_directory))))
 
 
-periods_df = pd.read_csv(os.path.join(_this_directory(), '../data/ucp_data_10_generators/periods.csv'))
-generators_df = pd.read_csv(os.path.join(_this_directory(), '../data/ucp_data_10_generators/generators.csv'))
+periods_df = pd.read_csv(os.path.join(_this_directory(), '../data/ucp_data_20_generators/periods.csv'))
+generators_df = pd.read_csv(os.path.join(_this_directory(), '../data/ucp_data_20_generators/generators.csv'))
 
 # periods
 T = list(periods_df['Period ID'])
@@ -106,15 +106,31 @@ for i, t in x_keys:
     if t == T[0]:
         mdl.addConstraint(x[i, t] - p[i] <= ru[i] * z[i, t-1] + su[i] * y[i, t], name=f'C9_{i}_{t}')
     else:
-        mdl.addConstraint(x[i, t] - x[i, t-1] <= ru[i] * z[i, t-1] + su[i] * y[i, t], name=f'C9_{i}_{t}')
+        if (T[0]+1 <= t <= T[-1] - 1) and (ru[i] > sd[i] - pl[i]) and (tu[i] >= 2):  # cut (23) from Ostrowsk, 2012
+            mdl.addConstraint(x[i, t] - x[i, t - 1] <= ru[i] * z[i, t] - pl[i] * w[i, t]
+                              - (ru[i] - sd[i] + pl[i]) * w[i, t + 1] + (su[i] - ru[i]) * y[i, t], name=f'RU23_{i}_{t}')
+        else:
+            mdl.addConstraint(x[i, t] - x[i, t-1] <= ru[i] * z[i, t-1] + su[i] * y[i, t], name=f'C9_{i}_{t}')
 
 # C10) Production of Generator 𝑖 must not ramp down more than 𝑠𝑑𝑖 when it's shutting down or more than 𝑟𝑑𝑖 when it's on:
 for i, t in x_keys:
     if t == T[0]:
         mdl.addConstraint(p[i] - x[i, t] <= rd[i] * z[i, t] + sd[i] * w[i, t], name=f'C10_{i}_{t}')
     else:
-        mdl.addConstraint(x[i, t-1] - x[i, t] <= rd[i] * z[i, t] + sd[i] * w[i, t], name=f'C10_{i}_{t}')
+        if (rd[i] > su[i] - pl[i]) and (tu[i] >= 2):  # cut (20) from Ostrowsk, 2012
+            mdl.addConstraint(x[i, t - 1] - x[i, t] <= rd[i] * z[i, t] + sd[i] * w[i, t]
+                              - (rd[i] - su[i] + pl[i]) * y[i, t - 1] - (rd[i] + pl[i]) * y[i, t], name=f'RD20_{i}_{t}')
+            if (t < T[-1]) and (rd[i] > su[i] - pl[i]) and (tu[i] >= 3) and (td[i] >= 2):  # cut (21) from Ostrowsk
+                mdl.addConstraint(x[i, t - 1] - x[i, t] <= rd[i] * z[i, t+1] + sd[i] * w[i, t] + rd[i] * w[i, t+1]
+                                  - (rd[i] - su[i] + pl[i]) * y[i, t - 1] - (rd[i] + pl[i]) * y[i, t]
+                                  - rd[i] * y[i, t+1], name=f'RD21_{i}_{t}')
+        else:
+            mdl.addConstraint(x[i, t-1] - x[i, t] <= rd[i] * z[i, t] + sd[i] * w[i, t], name=f'C10_{i}_{t}')
 
+    # if T[0] + 2 <= t <= T[-1] - 2:  # cut (22) from Ostrowsk
+    #     mdl.addConstraint(x[i, t - 2] - x[i, t] <= 2 * rd[i] * z[i, t] + sd[i] * w[i, t-1] + (sd[i] + rd[i]) * w[i, t]
+    #                       - 2 * rd[i] * y[i, t - 2] - (2 * rd[i] + pl[i]) * y[i, t-1]
+    #                       - (2 * rd[i] + pl[i]) * y[i, t], name=f'RD22_{i}_{t}')
 # Objective function
 production_cost = pulp.lpSum(cp[i] * x[i, t] for i, t in x_keys)
 startup_cost = pulp.lpSum(cu[i] * y[i, t] for i, t in y_keys)
