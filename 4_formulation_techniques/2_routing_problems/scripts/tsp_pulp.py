@@ -43,7 +43,7 @@ for k in I:
 
 # MTZ sub-tours elimination constraints
 n = len(I)
-u = pulp.LpVariable.dicts(indexs=I, cat=pulp.LpInteger, lowBound=1, upBound=n, name='u')
+u = pulp.LpVariable.dicts(indices=I, cat=pulp.LpInteger, lowBound=1, upBound=n, name='u')
 for i, j in x_keys:
     if j != I[0]:
         mdl.addConstraint(u[i] + 1 - n * (1 - x[i, j]) <= u[j], name=f'mtz_{i}_{j}')
